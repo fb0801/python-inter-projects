@@ -38,6 +38,42 @@ def find_path():
     start_pos = find_start(maze, start)
 
     q = queue.Queue()
+    q.put((start_pos, [start_pos]))
+
+    visited = set()
+
+    while not q.empty():
+        current_pos, path = q.get()
+        row, col = current_pos
+
+        if maze[row][col] == end:
+            return path 
+        
+        neighbours = find_neighbours(maze, row, col)
+        for neighbour in neighbours:
+            if neighbour in visited:
+                continue
+
+            r, c = neighbour
+            if maze[r][c] == '#':
+                continue
+            
+            new_path = path + [neighbour]
+            q.put((neighbour, new_path))
+            visited.add(neighbour)
+        
+def find_neighbours(maze, row, col):
+    neighbours = []
+
+    if row > 0: #up
+        neighbours.append((row -1, col))
+    if row + 1 < len(maze): #dwn
+        neighbours.append((row + 1, col))
+    if col > 0: #left
+        neighbours.append((row, col -1))
+    if col + 1 < len(maze[0]): #rght
+        neighbours.append((row, col + 1))
+    return neighbours
 
 
 def main(stdscr):
