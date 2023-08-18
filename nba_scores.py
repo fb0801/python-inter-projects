@@ -21,6 +21,7 @@ def get_scoreboard():
     scoreboard = get_links()['currentScoreboard']
     data = get(BASE_URL + scoreboard).json()
 
-    printer.pprint(data)
+    printer.pprint(data.keys())
+    
 
 get_scoreboard()
