@@ -8,4 +8,7 @@ printer = PrettyPrinter()
 
 data = get(BASE_URL + ALL_JSON).json()
 
-printer.pprint(data)
+links = data['links']
+scoreboard = links['currentScoreboard']
+
+printer.pprint(links)
