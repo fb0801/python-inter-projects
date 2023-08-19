@@ -32,8 +32,15 @@ def exchange_rate(currency1, currency2):
 
     data = response.json()
 
-    printer.pprint(data)
+    if len(data) == 0:
+        print('Invalid currencies.')
+        return 
+
+    return list(data.values())[0]
 
 
 data = get_currencies()
 print_currencies()
+
+rate= exchange_rate('GBP', 'USD')
+print(rate)

@@ -7,7 +7,7 @@ python intermediate projects
 ## Issues:
 
 ## Resources used:
-i
+
 https://www.youtube.com/watch?v=txKBWtvV99Y
 
 Original repo -> https://github.com/techwithtim/3-Mini-Python-Projects-For-Intermediates
