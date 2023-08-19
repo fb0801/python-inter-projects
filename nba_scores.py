@@ -22,8 +22,14 @@ def get_scoreboard():
     games = get(BASE_URL + scoreboard).json()['games']
 
     for game in games:
-        printer.pprint(game.keys())
-        break
+        home_team = game['hTeam']
+        away_team = game['vTeam']
+        clock = game['clock']
+        period = game['period']
+
+        print('------------------')
+        print(f"{home_team} vs {away_team}, {clock}, {period}")
+        
 
 
 get_scoreboard()
