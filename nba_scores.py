@@ -30,7 +30,11 @@ def get_scoreboard():
         print('------------------')
         print(f"{home_team['triCode']} vs {away_team['triCode']}")
         print(f"{home_team['score']} - {away_team['score']}")
+        print(f"{clock} - {period['current']}")
         
 
+def get_stats():
+    stats= get_links()['leagueTeamStatsLeaders']
+    teams.
 
-get_scoreboard()
+printer.pprint(get_links())
