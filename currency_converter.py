@@ -12,6 +12,11 @@ def get_currencies():
     url = BASE_URL + endpoint
     data = get(url).json()['results']
 
-    printer.pprint(data)
+    data = list(data.items())
+    data.sort()
 
-get_currencies()
+    return data
+
+data =get_currencies()
+
+printer.pprint(data)
