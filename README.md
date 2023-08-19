@@ -4,6 +4,8 @@ python intermediate projects
 
 ## Changes made:
 
+round the amount for currency convertor
+
 ## Issues:
 
 ## Resources used:

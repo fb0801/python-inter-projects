@@ -40,8 +40,46 @@ def exchange_rate(currency1, currency2):
     return rate
 
 
-#data = get_currencies()
-#print_currencies()
+def convert( currency1, currency2, amount):
+    rate = exchange_rate(currency1, currency2)
+    if rate is None:
+        return
+    
+    try:
+        amount = float(amount)
+    except:
+        print('INVALID AMOUNT')
+        return
+    converted_amount = rate * amount 
+    print(f"{amount} {currency1} is equal to {round(converted_amount)} {currency2}")
+    return converted_amount
 
-rate= exchange_rate('GBP', 'USD')
-print(rate)
+def main():
+    currencies = get_currencies()
+    print('Welcome to the currency convertor')
+    print("Lists - lists the different currencies")
+    print('Convert - convert from one currency to another')
+    print("Rate - get the exchange rate of the two currencies")
+    print()
+
+    while True:
+        command = input("Enter a command (q to quit): ").lower()
+
+        if command == 'q':
+            break
+        elif command == 'list':
+            print_currencies(currencies)
+        elif command == 'convert':
+            currency1 = input('Enter a base currency: ').upper()
+            amount = input('Enter amount in {currency1}: ')
+            currency2 = input('Enter a currency to convert to: ').upper()
+            convert(currency1, currency2, amount)
+
+        elif command == 'rate':
+            currency1 = input('Enter a base currency: ').upper()
+            currency2 = input('Enter a currency to convert to: ').upper()            
+            exchange_rate(currency1, currency2)
+        else:
+            print('Unknown command')
+
+main()
