@@ -37,6 +37,10 @@ def get_stats():
     stats= get_links()['leagueTeamStatsLeaders']
     teams = get(BASE_URL + stats).json()['league']['standard']['regularSeason']['teams']
 
-    printer.pprint(teams[0].keys())
+    for team in teams:
+        name = team['name']
+        nickname = team['nickname']
+        ppg = team['ppg']
+        print(f'{name} - {nickname} - {ppg}')
 
 get_stats()
