@@ -6,4 +6,12 @@ API_KEY = ''
 
 printer = PrettyPrinter()
 
-endpoint = f'api/v7/currencies?apiKey={API_KEY}'
+def get_currencies():
+
+    endpoint = f'api/v7/currencies?apiKey={API_KEY}'
+    url = BASE_URL + endpoint
+    data = get(url).json()['results']
+
+    printer.pprint(data)
+
+get_currencies()
