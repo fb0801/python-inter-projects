@@ -34,11 +34,14 @@ def exchange_rate(currency1, currency2):
         print('Invalid currencies.')
         return 
 
-    return list(data.values())[0]
+    rate = list(data.values())[0]
+    print(f'{currency1} -> {currency2} = {rate}')
+    
+    return rate
 
 
-data = get_currencies()
-print_currencies()
+#data = get_currencies()
+#print_currencies()
 
 rate= exchange_rate('GBP', 'USD')
 print(rate)
