@@ -37,10 +37,13 @@ def get_stats():
     stats= get_links()['leagueTeamStatsLeaders']
     teams = get(BASE_URL + stats).json()['league']['standard']['regularSeason']['teams']
 
-    for team in teams:
+    teams = list(filter(lambda x: x['name'] != 'Team', teams))
+    teams.sort(key = lambda x: int(x['ppg']['rank']))
+
+    for i,team in enumerate(teams):
         name = team['name']
         nickname = team['nickname']
-        ppg = team['ppg']
-        print(f'{name} - {nickname} - {ppg}')
+        ppg = team['ppg']['avg']
+        print(f'{i + 1}. {name} - {nickname} - {ppg}')
 
 get_stats()
